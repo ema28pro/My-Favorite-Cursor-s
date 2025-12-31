@@ -1,26 +1,5 @@
 const container = document.getElementById('galleries-container');
 
-// --- Fake Cursor Logic for Home ---
-const fakeCursor = document.createElement('img');
-fakeCursor.id = 'home-fake-cursor';
-Object.assign(fakeCursor.style, {
-    position: 'fixed',
-    pointerEvents: 'none',
-    zIndex: '9999',
-    width: '48px', // Tamaño aumentado (normalmente 32px)
-    height: 'auto',
-    display: 'none',
-    imageRendering: 'pixelated'
-});
-document.body.appendChild(fakeCursor);
-
-document.addEventListener('mousemove', (e) => {
-    if (fakeCursor.style.display !== 'none') {
-        fakeCursor.style.left = e.clientX + 'px';
-        fakeCursor.style.top = e.clientY + 'px';
-    }
-});
-
 function createSection(title, content, link = null) {
     const section = document.createElement('section');
     section.style.marginBottom = '4rem';
@@ -78,29 +57,11 @@ function renderMyCursors() {
 
         const updateCardCursor = (file) => {
             const cursorPath = cursorFolder + file;
-            // Ocultamos el cursor nativo en la card para usar el fake
-            card.style.cursor = 'none';
-
-            // Guardamos la URL para el fake cursor
-            card.dataset.cursorUrl = cursorPath;
-
-            // Si el mouse ya está encima, actualizamos el fake cursor inmediatamente
-            if (card.matches(':hover')) {
-                fakeCursor.src = cursorPath;
-            }
+            // Usamos el cursor nativo del navegador para asegurar que el hotspot (punto de click) sea correcto
+            card.style.cursor = `url('${cursorPath}'), auto`;
 
             img.src = cursorPath;
         };
-
-        // Eventos para el Fake Cursor
-        card.addEventListener('mouseenter', () => {
-            fakeCursor.src = card.dataset.cursorUrl;
-            fakeCursor.style.display = 'block';
-        });
-
-        card.addEventListener('mouseleave', () => {
-            fakeCursor.style.display = 'none';
-        });
 
         const display = document.createElement('div');
         display.className = 'cursor-display';
@@ -163,6 +124,7 @@ function renderMyCursors() {
         detailBtn.style.textDecoration = 'none';
         detailBtn.style.marginTop = '0.5rem';
         detailBtn.style.transition = 'all 0.2s';
+        detailBtn.style.cursor = 'inherit';
 
         detailBtn.onmouseover = () => {
             detailBtn.style.borderColor = '#bbb';
