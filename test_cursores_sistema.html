@@ -5,16 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test de Cursores del Sistema</title>
+    <link rel="icon" href="./Icon.png">
+    <link rel="stylesheet" href="style.css">
     <style>
-        body {
-            font-family: sans-serif;
-            background-color: #f0f0f0;
-            padding: 20px;
+        .main-content {
+            padding: 2rem;
             text-align: center;
-        }
-
-        h1 {
-            margin-bottom: 20px;
         }
 
         .grid {
@@ -36,6 +32,64 @@
             flex-direction: column;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             transition: transform 0.2s;
+            opacity: 0;
+            animation: fadeInUp 0.5s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cursor-box:nth-child(1) {
+            animation-delay: 0.05s;
+        }
+
+        .cursor-box:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+
+        .cursor-box:nth-child(3) {
+            animation-delay: 0.15s;
+        }
+
+        .cursor-box:nth-child(4) {
+            animation-delay: 0.2s;
+        }
+
+        .cursor-box:nth-child(5) {
+            animation-delay: 0.25s;
+        }
+
+        .cursor-box:nth-child(6) {
+            animation-delay: 0.3s;
+        }
+
+        .cursor-box:nth-child(7) {
+            animation-delay: 0.35s;
+        }
+
+        .cursor-box:nth-child(8) {
+            animation-delay: 0.4s;
+        }
+
+        .cursor-box:nth-child(9) {
+            animation-delay: 0.45s;
+        }
+
+        .cursor-box:nth-child(10) {
+            animation-delay: 0.5s;
+        }
+
+        .cursor-box:nth-child(n+11) {
+            animation-delay: 0.55s;
         }
 
         .cursor-box:hover {
@@ -58,163 +112,206 @@
 </head>
 
 <body>
+    <header>
+        <div class="header-content">
+            <h1>Galería de Cursores</h1>
+            <div class="header-links">
+                <a href="index.html" class="test-link" title="Volver al Inicio">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                    Volver al Inicio
+                </a>
+                <div class="social-icons">
+                    <a href="https://github.com/ema28pro" target="_blank" title="GitHub">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                            </path>
+                        </svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/emanuel-lopez-f/" target="_blank" title="LinkedIn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                            </path>
+                            <rect x="2" y="9" width="4" height="12"></rect>
+                            <circle cx="4" cy="4" r="2"></circle>
+                        </svg>
+                    </a>
+                    <a href="https://www.instagram.com/1m_lasagna" target="_blank" title="Instagram">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
 
-    <h1>Cursores del Sistema</h1>
-    <p>Pasa el mouse sobre los cuadros para ver cómo luce cada cursor configurado en tu equipo.</p>
+    <div class="main-content">
+        <h2>Cursores del Sistema</h2>
+        <p>Pasa el mouse sobre los cuadros para ver cómo luce cada cursor configurado en tu equipo.</p>
 
-    <div class="grid">
-        <!-- General -->
-        <div class="cursor-box" style="cursor: default;">
-            <span class="label">default</span>
-            <span class="desc">Predeterminado</span>
-        </div>
-        <div class="cursor-box" style="cursor: none;">
-            <span class="label">none</span>
-            <span class="desc">Invisible</span>
-        </div>
+        <div class="grid">
+            <!-- General -->
+            <div class="cursor-box" style="cursor: default;">
+                <span class="label">default</span>
+                <span class="desc">Predeterminado</span>
+            </div>
+            <div class="cursor-box" style="cursor: none;">
+                <span class="label">none</span>
+                <span class="desc">Invisible</span>
+            </div>
 
-        <!-- Links & Status -->
-        <div class="cursor-box" style="cursor: context-menu;">
-            <span class="label">context-menu</span>
-            <span class="desc">Menú contextual</span>
-        </div>
-        <div class="cursor-box" style="cursor: help;">
-            <span class="label">help</span>
-            <span class="desc">Ayuda</span>
-        </div>
-        <div class="cursor-box" style="cursor: pointer;">
-            <span class="label">pointer</span>
-            <span class="desc">Enlace / Botón</span>
-        </div>
-        <div class="cursor-box" style="cursor: progress;">
-            <span class="label">progress</span>
-            <span class="desc">Progreso</span>
-        </div>
-        <div class="cursor-box" style="cursor: wait;">
-            <span class="label">wait</span>
-            <span class="desc">Espera</span>
-        </div>
+            <!-- Links & Status -->
+            <div class="cursor-box" style="cursor: context-menu;">
+                <span class="label">context-menu</span>
+                <span class="desc">Menú contextual</span>
+            </div>
+            <div class="cursor-box" style="cursor: help;">
+                <span class="label">help</span>
+                <span class="desc">Ayuda</span>
+            </div>
+            <div class="cursor-box" style="cursor: pointer;">
+                <span class="label">pointer</span>
+                <span class="desc">Enlace / Botón</span>
+            </div>
+            <div class="cursor-box" style="cursor: progress;">
+                <span class="label">progress</span>
+                <span class="desc">Progreso</span>
+            </div>
+            <div class="cursor-box" style="cursor: wait;">
+                <span class="label">wait</span>
+                <span class="desc">Espera</span>
+            </div>
 
-        <!-- Selection -->
-        <div class="cursor-box" style="cursor: cell;">
-            <span class="label">cell</span>
-            <span class="desc">Celda</span>
-        </div>
-        <div class="cursor-box" style="cursor: crosshair;">
-            <span class="label">crosshair</span>
-            <span class="desc">Cruz</span>
-        </div>
-        <div class="cursor-box" style="cursor: text;">
-            <span class="label">text</span>
-            <span class="desc">Texto</span>
-        </div>
-        <div class="cursor-box" style="cursor: vertical-text;">
-            <span class="label">vertical-text</span>
-            <span class="desc">Texto vertical</span>
-        </div>
+            <!-- Selection -->
+            <div class="cursor-box" style="cursor: cell;">
+                <span class="label">cell</span>
+                <span class="desc">Celda</span>
+            </div>
+            <div class="cursor-box" style="cursor: crosshair;">
+                <span class="label">crosshair</span>
+                <span class="desc">Cruz</span>
+            </div>
+            <div class="cursor-box" style="cursor: text;">
+                <span class="label">text</span>
+                <span class="desc">Texto</span>
+            </div>
+            <div class="cursor-box" style="cursor: vertical-text;">
+                <span class="label">vertical-text</span>
+                <span class="desc">Texto vertical</span>
+            </div>
 
-        <!-- Drag & Drop -->
-        <div class="cursor-box" style="cursor: alias;">
-            <span class="label">alias</span>
-            <span class="desc">Alias / Acceso directo</span>
-        </div>
-        <div class="cursor-box" style="cursor: copy;">
-            <span class="label">copy</span>
-            <span class="desc">Copiar</span>
-        </div>
-        <div class="cursor-box" style="cursor: move;">
-            <span class="label">move</span>
-            <span class="desc">Mover</span>
-        </div>
-        <div class="cursor-box" style="cursor: no-drop;">
-            <span class="label">no-drop</span>
-            <span class="desc">No soltar</span>
-        </div>
-        <div class="cursor-box" style="cursor: not-allowed;">
-            <span class="label">not-allowed</span>
-            <span class="desc">Prohibido</span>
-        </div>
-        <div class="cursor-box" style="cursor: grab;">
-            <span class="label">grab</span>
-            <span class="desc">Agarrar</span>
-        </div>
-        <div class="cursor-box" style="cursor: grabbing;">
-            <span class="label">grabbing</span>
-            <span class="desc">Agarrando</span>
-        </div>
+            <!-- Drag & Drop -->
+            <div class="cursor-box" style="cursor: alias;">
+                <span class="label">alias</span>
+                <span class="desc">Alias / Acceso directo</span>
+            </div>
+            <div class="cursor-box" style="cursor: copy;">
+                <span class="label">copy</span>
+                <span class="desc">Copiar</span>
+            </div>
+            <div class="cursor-box" style="cursor: move;">
+                <span class="label">move</span>
+                <span class="desc">Mover</span>
+            </div>
+            <div class="cursor-box" style="cursor: no-drop;">
+                <span class="label">no-drop</span>
+                <span class="desc">No soltar</span>
+            </div>
+            <div class="cursor-box" style="cursor: not-allowed;">
+                <span class="label">not-allowed</span>
+                <span class="desc">Prohibido</span>
+            </div>
+            <div class="cursor-box" style="cursor: grab;">
+                <span class="label">grab</span>
+                <span class="desc">Agarrar</span>
+            </div>
+            <div class="cursor-box" style="cursor: grabbing;">
+                <span class="label">grabbing</span>
+                <span class="desc">Agarrando</span>
+            </div>
 
-        <!-- Resizing & Scrolling -->
-        <div class="cursor-box" style="cursor: all-scroll;">
-            <span class="label">all-scroll</span>
-            <span class="desc">Desplazamiento</span>
-        </div>
-        <div class="cursor-box" style="cursor: col-resize;">
-            <span class="label">col-resize</span>
-            <span class="desc">Columna</span>
-        </div>
-        <div class="cursor-box" style="cursor: row-resize;">
-            <span class="label">row-resize</span>
-            <span class="desc">Fila</span>
-        </div>
-        <div class="cursor-box" style="cursor: n-resize;">
-            <span class="label">n-resize</span>
-            <span class="desc">Norte</span>
-        </div>
-        <div class="cursor-box" style="cursor: e-resize;">
-            <span class="label">e-resize</span>
-            <span class="desc">Este</span>
-        </div>
-        <div class="cursor-box" style="cursor: s-resize;">
-            <span class="label">s-resize</span>
-            <span class="desc">Sur</span>
-        </div>
-        <div class="cursor-box" style="cursor: w-resize;">
-            <span class="label">w-resize</span>
-            <span class="desc">Oeste</span>
-        </div>
-        <div class="cursor-box" style="cursor: ne-resize;">
-            <span class="label">ne-resize</span>
-            <span class="desc">NE</span>
-        </div>
-        <div class="cursor-box" style="cursor: nw-resize;">
-            <span class="label">nw-resize</span>
-            <span class="desc">NO</span>
-        </div>
-        <div class="cursor-box" style="cursor: se-resize;">
-            <span class="label">se-resize</span>
-            <span class="desc">SE</span>
-        </div>
-        <div class="cursor-box" style="cursor: sw-resize;">
-            <span class="label">sw-resize</span>
-            <span class="desc">SO</span>
-        </div>
-        <div class="cursor-box" style="cursor: ew-resize;">
-            <span class="label">ew-resize</span>
-            <span class="desc">E-O</span>
-        </div>
-        <div class="cursor-box" style="cursor: ns-resize;">
-            <span class="label">ns-resize</span>
-            <span class="desc">N-S</span>
-        </div>
-        <div class="cursor-box" style="cursor: nesw-resize;">
-            <span class="label">nesw-resize</span>
-            <span class="desc">NE-SO</span>
-        </div>
-        <div class="cursor-box" style="cursor: nwse-resize;">
-            <span class="label">nwse-resize</span>
-            <span class="desc">NO-SE</span>
-        </div>
+            <!-- Resizing & Scrolling -->
+            <div class="cursor-box" style="cursor: all-scroll;">
+                <span class="label">all-scroll</span>
+                <span class="desc">Desplazamiento</span>
+            </div>
+            <div class="cursor-box" style="cursor: col-resize;">
+                <span class="label">col-resize</span>
+                <span class="desc">Columna</span>
+            </div>
+            <div class="cursor-box" style="cursor: row-resize;">
+                <span class="label">row-resize</span>
+                <span class="desc">Fila</span>
+            </div>
+            <div class="cursor-box" style="cursor: n-resize;">
+                <span class="label">n-resize</span>
+                <span class="desc">Norte</span>
+            </div>
+            <div class="cursor-box" style="cursor: e-resize;">
+                <span class="label">e-resize</span>
+                <span class="desc">Este</span>
+            </div>
+            <div class="cursor-box" style="cursor: s-resize;">
+                <span class="label">s-resize</span>
+                <span class="desc">Sur</span>
+            </div>
+            <div class="cursor-box" style="cursor: w-resize;">
+                <span class="label">w-resize</span>
+                <span class="desc">Oeste</span>
+            </div>
+            <div class="cursor-box" style="cursor: ne-resize;">
+                <span class="label">ne-resize</span>
+                <span class="desc">NE</span>
+            </div>
+            <div class="cursor-box" style="cursor: nw-resize;">
+                <span class="label">nw-resize</span>
+                <span class="desc">NO</span>
+            </div>
+            <div class="cursor-box" style="cursor: se-resize;">
+                <span class="label">se-resize</span>
+                <span class="desc">SE</span>
+            </div>
+            <div class="cursor-box" style="cursor: sw-resize;">
+                <span class="label">sw-resize</span>
+                <span class="desc">SO</span>
+            </div>
+            <div class="cursor-box" style="cursor: ew-resize;">
+                <span class="label">ew-resize</span>
+                <span class="desc">E-O</span>
+            </div>
+            <div class="cursor-box" style="cursor: ns-resize;">
+                <span class="label">ns-resize</span>
+                <span class="desc">N-S</span>
+            </div>
+            <div class="cursor-box" style="cursor: nesw-resize;">
+                <span class="label">nesw-resize</span>
+                <span class="desc">NE-SO</span>
+            </div>
+            <div class="cursor-box" style="cursor: nwse-resize;">
+                <span class="label">nwse-resize</span>
+                <span class="desc">NO-SE</span>
+            </div>
 
-        <!-- Zoom -->
-        <div class="cursor-box" style="cursor: zoom-in;">
-            <span class="label">zoom-in</span>
-            <span class="desc">Acercar</span>
+            <!-- Zoom -->
+            <div class="cursor-box" style="cursor: zoom-in;">
+                <span class="label">zoom-in</span>
+                <span class="desc">Acercar</span>
+            </div>
+            <div class="cursor-box" style="cursor: zoom-out;">
+                <span class="label">zoom-out</span>
+                <span class="desc">Alejar</span>
+            </div>
         </div>
-        <div class="cursor-box" style="cursor: zoom-out;">
-            <span class="label">zoom-out</span>
-            <span class="desc">Alejar</span>
-        </div>
-    </div>
 
 </body>
 
