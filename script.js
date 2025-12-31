@@ -233,7 +233,9 @@ function renderOtherCollection(collection) {
 
         } else {
             // Para archivos .cur, usamos el cursor nativo
-            card.style.cursor = `url('${cursorUrl}'), auto`;
+            // Escapamos comillas simples para evitar errores de CSS
+            const safeUrl = cursorUrl.replace(/'/g, "%27");
+            card.style.cursor = `url('${safeUrl}'), auto`;
         }
 
         // Check if it's an animated cursor (.ani) or static (.cur)
@@ -245,9 +247,10 @@ function renderOtherCollection(collection) {
 
         // Use GIF if it's an animation, otherwise use the file itself
         if (IsAni) {
-            img.src = collection.folder + filename.replace('.ani', '.gif');
+            const gifFilename = filename.replace('.ani', '.gif');
+            img.src = collection.folder + encodeURIComponent(gifFilename);
         } else {
-            img.src = collection.folder + filename;
+            img.src = collection.folder + encodeURIComponent(filename);
         }
 
         img.alt = filename;
@@ -256,11 +259,12 @@ function renderOtherCollection(collection) {
         img.onerror = function () {
             if (IsAni) {
                 // Try the original .ani as a last resort or show placeholder
-                this.src = collection.folder + filename;
+                // Avoid infinite loop if .ani also fails
                 this.onerror = function () {
                     this.style.display = 'none';
                     display.innerHTML = '<div style="text-align:center; color:#aaa;"><div style="font-size:2rem;">✨</div><div style="font-size:0.8rem; margin-top:0.5rem;">Animado</div></div>';
-                }
+                };
+                this.src = collection.folder + encodeURIComponent(filename);
             }
         };
 
