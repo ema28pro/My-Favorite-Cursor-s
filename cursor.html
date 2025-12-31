@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Cursor</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .detail-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            align-items: start;
+        }
+
+        .preview-section {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 400px;
+            position: relative;
+        }
+
+        .preview-3d {
+            max-width: 100%;
+            max-height: 400px;
+            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.15));
+            transition: transform 0.3s ease;
+        }
+
+        .preview-3d:hover {
+            transform: scale(1.05) rotate(5deg);
+        }
+
+        .info-section {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .cursor-title {
+            font-size: 3rem;
+            margin: 0;
+            color: #333;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .test-area {
+            margin-top: 3rem;
+            padding: 2rem;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .test-area h3 {
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+        }
+
+        .test-controls {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+            align-items: center;
+        }
+
+        .test-btn {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--border-color);
+            background: #f8f9fa;
+            border-radius: 4px;
+            cursor: inherit;
+            /* Important for testing */
+            transition: all 0.2s;
+        }
+
+        .test-btn:hover {
+            background: var(--accent-color);
+            color: white;
+            border-color: var(--accent-color);
+        }
+
+        .draggable-box {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--accent-color), var(--accent-hover));
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
+            cursor: inherit;
+            /* Will be set to move via JS if needed, or just inherit */
+            user-select: none;
+            position: relative;
+            box-shadow: var(--shadow-md);
+            touch-action: none;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 1rem;
+            color: #666;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            color: var(--accent-color);
+        }
+
+        @media (max-width: 768px) {
+            .detail-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Detalle del Cursor</h1>
+    </header>
+
+    <main class="detail-container">
+        <div class="preview-section">
+            <img id="preview-3d" src="" alt="Vista 3D" class="preview-3d">
+        </div>
+
+        <div class="info-section">
+            <div>
+                <a href="index.html" class="back-link">← Volver a la galería</a>
+                <h2 id="cursor-name" class="cursor-title">Nombre del Cursor</h2>
+            </div>
+
+            <div id="shadow-control-container">
+                <!-- Checkbox will be injected here -->
+            </div>
+
+            <div id="size-control-container"
+                style="margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem;">
+                <label for="cursor-size">Tamaño del Mouse:</label>
+                <input type="range" id="cursor-size" min="16" max="128" value="32">
+                <span id="size-value">32px</span>
+            </div>
+
+            <div class="action-buttons">
+                <a id="download-btn" href="#" class="btn-download" style="width: auto;">Descargar</a>
+                <a id="original-link" href="#" target="_blank" class="btn-download"
+                    style="background-color: #6c757d; width: auto;">Ver en Cursor.cc</a>
+            </div>
+
+            <div class="test-area">
+                <h3>Zona de Pruebas</h3>
+                <div class="test-controls">
+                    <button class="test-btn" onclick="alert('¡Click!')">Botón 1</button>
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <label for="test-range">Barra:</label>
+                        <input type="range" id="test-range">
+                    </div>
+                    <input type="checkbox" id="test-check"> <label for="test-check">Checkbox</label>
+                </div>
+
+                <div id="drag-area"
+                    style="height: 200px; border: 2px dashed #ddd; border-radius: 8px; display: flex; justify-content: center; align-items: center; position: relative; overflow: hidden;">
+                    <div id="draggable" class="draggable-box">Arrástrame</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Fake Cursor Element -->
+    <img id="fake-cursor" src=""
+        style="position: fixed; pointer-events: none; z-index: 9999; display: none; width: 32px; height: 32px;">
+
+    <script src="data.js"></script>
+    <script src="detail.js"></script>
+</body>
+
+</html>

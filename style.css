@@ -1,0 +1,169 @@
+:root {
+    --bg-color: #f8f9fa;
+    --card-bg: #ffffff;
+    --text-color: #212529;
+    --accent-color: #007bff;
+    --accent-hover: #0056b3;
+    --border-color: #e9ecef;
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    min-height: 100vh;
+}
+
+header {
+    text-align: center;
+    padding: 3rem 1rem;
+    background-color: #fff;
+    border-bottom: 1px solid var(--border-color);
+}
+
+h1 {
+    font-weight: 300;
+    color: #333;
+    margin: 0;
+    font-size: 2.5rem;
+    letter-spacing: -0.5px;
+    text-shadow: none;
+    font-family: inherit;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 3rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.cursor-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: var(--shadow-sm);
+}
+
+.cursor-card::after {
+    display: none;
+}
+
+.cursor-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--border-color);
+}
+
+.cursor-display {
+    width: 100%;
+    height: 150px;
+    background-color: #f1f3f5;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    transition: background-color 0.3s;
+    border: none;
+}
+
+.cursor-card:hover .cursor-display {
+    background-color: #e9ecef;
+    border-color: transparent;
+}
+
+.cursor-img {
+    width: 145px;
+    /* Más grande para ser protagonista */
+    height: 145px;
+    image-rendering: pixelated;
+    filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.1));
+    transition: transform 0.3s ease;
+}
+
+.cursor-card:hover .cursor-img {
+    transform: scale(1.2);
+}
+
+.cursor-name {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 1rem;
+    font-family: inherit;
+}
+
+.card-controls {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: auto;
+}
+
+.shadow-option {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: #666;
+    min-height: 24px;
+    cursor: inherit;
+    /* Para mantener altura si no hay checkbox */
+}
+
+.shadow-option label {
+    cursor: inherit;
+}
+
+.btn-download {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--accent-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: background-color 0.2s;
+    border: none;
+    cursor: inherit;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.btn-download:hover {
+    background-color: var(--accent-hover);
+}
+
+/* Checkbox moderno */
+input[type="checkbox"] {
+    accent-color: var(--accent-color);
+    width: 18px;
+    height: 18px;
+    cursor: inherit;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    margin-top: 4rem;
+    border-top: 1px solid var(--border-color);
+    color: #666;
+    font-size: 0.9rem;
+    background-color: #fff;
+}
