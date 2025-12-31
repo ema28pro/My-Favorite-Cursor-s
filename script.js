@@ -191,32 +191,50 @@ function renderOtherCollection(collection) {
         const card = document.createElement('div');
         card.className = 'cursor-card';
 
-        // Ocultar cursor nativo
-        card.style.cursor = 'none';
-
-        // Determinar URL visual para el fake cursor
-        var IsAni = filename.endsWith('.ani');
-        let visualUrl = collection.folder + filename;
-
-        if (IsAni) {
-            // Usar GIF para animados
-            visualUrl = collection.folder + filename.replace('.ani', '.gif');
-        }
-
-        card.dataset.cursorUrl = visualUrl;
-
-        // Eventos Fake Cursor
-        card.addEventListener('mouseenter', () => {
-            fakeCursor.src = card.dataset.cursorUrl;
-            fakeCursor.style.display = 'block';
-        });
-
-        card.addEventListener('mouseleave', () => {
-            fakeCursor.style.display = 'none';
-        });
-
         const display = document.createElement('div');
         display.className = 'cursor-display';
+
+        // Determinar URL del cursor
+        var IsAni = filename.endsWith('.ani');
+        let cursorUrl = collection.folder + filename;
+
+        if (IsAni) {
+            card.style.cursor = 'default';
+            display.style.position = 'relative';
+
+            const msg = document.createElement('div');
+            msg.textContent = 'Vista previa no disponible';
+            Object.assign(msg.style, {
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                color: '#fff',
+                padding: '8px 12px',
+                borderRadius: '6px',
+                fontSize: '0.85rem',
+                pointerEvents: 'none',
+                opacity: '0',
+                transition: 'opacity 0.2s',
+                zIndex: '10',
+                textAlign: 'center',
+                whiteSpace: 'nowrap',
+                boxShadow: '0 4px 6px rgba(0,0,0,0.1)'
+            });
+            display.appendChild(msg);
+
+            card.addEventListener('mouseenter', () => {
+                msg.style.opacity = '1';
+            });
+            card.addEventListener('mouseleave', () => {
+                msg.style.opacity = '0';
+            });
+
+        } else {
+            // Para archivos .cur, usamos el cursor nativo
+            card.style.cursor = `url('${cursorUrl}'), auto`;
+        }
 
         // Check if it's an animated cursor (.ani) or static (.cur)
         // Browsers don't support .ani in <img> tags usually, but we can try or use a placeholder
