@@ -77,7 +77,8 @@ const otherCollections = [
             "NotIngameCursor CustomBusy whatbakd frame5 mirrored.cur",
             "Scissors.cur",
             "Slime King.cur",
-            "Goofy ahh Link.cur"
+            "Goofy ahh Link.cur",
+            "Esqueleton Fish.cur"
         ]
     },
     {
