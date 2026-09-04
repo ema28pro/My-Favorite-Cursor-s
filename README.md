@@ -1,5 +1,7 @@
 # 🖱️ Museo de Cursores
 
+[![preview](./preview.webp)](https://ema28pro.github.io/My-Favorite-Cursor-s/)
+
 ¡Bienvenido a mi colección personal de cursores! 
 
 Esta página es una galería interactiva diseñada para explorar, probar y descargar una variedad de cursores personalizados para darle un toque único a tu equipo.
